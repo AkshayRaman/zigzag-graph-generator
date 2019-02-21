@@ -39,7 +39,7 @@ if __name__ == "__main__":
 
     n = 0.3
     zz2 = make_zigzag(original_list, n, reverse=True)
-    plt.plot(zz2, label='random zigzag (%s)' %n)
+    plt.plot(zz2, label='random zigzag reversed (%s)' %n)
     plt.legend()
 
     plt.show()
