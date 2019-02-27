@@ -1,5 +1,6 @@
 import random
 import matplotlib.pyplot as plt
+from math import sin
 
 random.seed(7)
 
@@ -24,17 +25,20 @@ def make_zigzag(A, shift, reverse=False):
 if __name__ == "__main__":
     N = 100
     original_list = [random.randint(0, 100)/100.0 for i in range(N)]
+    original_list = [sum(random.randint(1,10)*(i**j) for j in range(0,3)) for i in range(N)]
     sorted_list = sorted(original_list)
     reverse_sorted_list = sorted_list[::-1]
 
+    #plt.subplot(1,2,1)
     plt.plot(original_list, label='original data')
-    plt.plot(sorted_list, label='sorted')
-    plt.plot(reverse_sorted_list, label='reverse sorted')
+    #plt.plot(sorted_list, label='sorted')
+    #plt.plot(reverse_sorted_list, label='reverse sorted')
     plt.legend()
 
-    n = 50
-    zz1 = make_zigzag(original_list, n)
-    plt.plot(zz1, label='random zigzag (%s)' %n)
+    #plt.subplot(1,2,2)
+    n = 30
+    zz1 = make_zigzag(original_list, n, reverse=False)
+    #plt.plot(zz1, label='random zigzag (%s)' %n)
     plt.legend()
 
     n = 0.3
